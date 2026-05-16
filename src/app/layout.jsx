@@ -19,9 +19,10 @@ const montserratAlternates = Montserrat_Alternates({
 export const metadata = {
   title: {
     template: '%s - ČtvrtCON',
-    default: 'ČtvrtCON - 1. celodenní Čtvrtkon konference',
+    default: 'ČtvrtCON 2026 - 2. ročník Čtvrtkon konference',
   },
-  description: 'Historicky první celodenní Čtvrtkon konference',
+  description:
+    'Druhý ročník celodenní Čtvrtkon konference. 28. 11. 2026, Riegrova 51, České Budějovice.',
 }
 
 export default function RootLayout({ children }) {
