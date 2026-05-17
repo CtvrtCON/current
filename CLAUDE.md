@@ -22,7 +22,7 @@ There is no test suite.
 - **Next.js 14 App Router**, **React 18**, **Tailwind CSS 3.4**, **Headless UI v2** (`@headlessui/react`, `@headlessui/tailwindcss`). All source is **JSX** (no TypeScript).
 - **Path alias**: `@/*` → `./src/*` (configured in `jsconfig.json`). Always import via `@/components/...`, `@/images/...`, `@/styles/...`.
 - **Prettier**: single quotes, no semicolons, `prettier-plugin-tailwindcss` sorts Tailwind classes — preserve that ordering when editing class lists.
-- **Deployment**: Netlify (`@netlify/plugin-nextjs`). `next.config.js` keeps `basePath` / `output: "export"` commented out; uncomment only when producing a fully static build for non-Netlify hosting.
+- **Deployment**: Netlify (`@netlify/plugin-nextjs`). `next.config.js` sets `output: "export"` (fully static export written to `out/`) and `basePath: "/ctvrtcon"` (site is served under that path). Comment them out only when reverting to a non-static / root-hosted build.
 - **Fonts** are loaded in `src/app/layout.jsx` via `next/font/google` (Inter as body, Montserrat Alternates as display) and exposed as CSS vars `--font-inter` / `--font-montserrat_alternates`, wired into Tailwind's `fontFamily.sans` / `fontFamily.display`.
 - **Theme colors**: a custom `primary` palette (50–950) is defined in `tailwind.config.js`. Prefer `text-primary-*` / `bg-primary-*` etc. over arbitrary hex.
 - Components that use Headless UI or React hooks declare `'use client'` at the top (see `Speakers.jsx`, `Schedule.jsx`). Pure layout/markup components stay as Server Components.
