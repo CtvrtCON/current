@@ -1,9 +1,13 @@
 'use client'
 
-import { BackgroundImage } from '@/components/BackgroundImage'
-import { Container } from '@/components/Container'
-import { Section } from '@/components/Section'
+import clsx from 'clsx'
+
 import { BuyTicketButton } from '@/components/BuyTicketButton'
+import { Container } from '@/components/Container'
+import { Reveal } from '@/components/Reveal'
+import { Section } from '@/components/Section'
+import { SectionHeading } from '@/components/SectionHeading'
+import { TRACKS } from '@/components/tracks'
 
 const program = [
   {
@@ -30,18 +34,20 @@ const program = [
       {
         stageName: 'Stage 1',
         stageSize: 'Větší sál',
-        name: 'Jak se liší marketing ISIS, Talibánu a Al-Káidy?',
-        id: 'tomas-zahalka',
-        description: 'Tomáš Zahálka',
+        name: 'Naprogramuješ cokoliv. A co dál?',
+        description: 'Václav Novotný',
+        track: 'DEV',
+        id: 'vaclav-novotny',
         start: '9:15',
         end: '10:00',
       },
       {
         stageName: 'Stage 2',
         stageSize: 'Menší sál',
-        name: 'Databázový cluster MariaDB Galera',
-        id: 'petr-stastny',
-        description: 'Petr Šťastný',
+        name: 'Marketing v pohorách: Příběh budování startupu Adventurer',
+        description: 'Karel Šimek',
+        track: 'MKT',
+        id: 'karel-simek',
         start: '9:15',
         end: '10:00',
       },
@@ -50,7 +56,7 @@ const program = [
   {
     block: [
       {
-        name: 'Pauza',
+        name: 'Přestávka',
         start: '10:00',
         end: '10:15',
       },
@@ -61,18 +67,20 @@ const program = [
       {
         stageName: 'Stage 1',
         stageSize: 'Větší sál',
-        name: 'Profilování a optimalizace v Pythonu: Když na výkonu záleží',
-        id: 'martin-vastl',
-        description: 'Martin Vastl',
+        name: 'Bude upřesněno',
+        description: 'Martin Hrabánek',
+        track: 'DSN',
+        id: 'martin-hrabanek',
         start: '10:15',
         end: '11:00',
       },
       {
         stageName: 'Stage 2',
         stageSize: 'Menší sál',
-        name: 'Co dělá z brandu lovebrand?',
-        id: 'martin-hrabanek',
-        description: 'Martin Hrabánek',
+        name: 'SQLite je na nic',
+        description: 'Martin Strouhal',
+        track: 'DEV',
+        id: 'martin-strouhal',
         start: '10:15',
         end: '11:00',
       },
@@ -82,9 +90,27 @@ const program = [
     block: [
       {
         name: 'Oběd',
-        description: 'Prostor na oběd - někde v okolí, či případný networking',
+        description: 'Prostor na oběd, či případný networking',
         start: '11:00',
         end: '12:30',
+      },
+      {
+        stageName: 'Stage 2',
+        stageSize: 'Menší sál',
+        talks: [
+          {
+            name: 'Rozhovor: Karel Hladiš a host',
+            track: 'MKT',
+            start: '11:00',
+            end: '11:30',
+          },
+          {
+            name: 'Rozhovor: Jan Svěrák a host',
+            track: 'DEV',
+            start: '12:00',
+            end: '12:30',
+          },
+        ],
       },
     ],
   },
@@ -93,18 +119,20 @@ const program = [
       {
         stageName: 'Stage 1',
         stageSize: 'Větší sál',
-        name: 'Jak udělat dobrý projekt: UX výzkum jako základ úspěchu',
-        id: 'jakub-hajek',
-        description: 'Jakub Hájek',
+        name: 'Bude upřesněno',
+        description: 'Petr Voves',
+        track: 'MKT',
+        id: 'petr-voves',
         start: '12:30',
         end: '13:15',
       },
       {
         stageName: 'Stage 2',
         stageSize: 'Menší sál',
-        name: 'Mobilní aplikace: Nativní nebo multiplatformní vývoj?',
-        id: 'petr-urban',
-        description: 'Petr Urban',
+        name: 'Začněte s HW programováním ještě dnes',
+        description: 'Vladimír Smitka',
+        track: 'DEV',
+        id: 'vladimir-smitka',
         start: '12:30',
         end: '13:15',
       },
@@ -113,7 +141,7 @@ const program = [
   {
     block: [
       {
-        name: 'Pauza',
+        name: 'Přestávka',
         start: '13:15',
         end: '13:30',
       },
@@ -124,19 +152,30 @@ const program = [
       {
         stageName: 'Stage 1',
         stageSize: 'Větší sál',
-        name: 'Monetizace sociálních sítí pomocí virtuálních influencerů',
-        id: 'david-zelenka',
-        description: 'David Zelenka',
+        name: 'Jak se změní IT firmy v době vibe codérů',
+        description: 'Petr Soukup',
+        track: 'DEV',
+        id: 'petr-soukup',
         start: '13:30',
         end: '14:15',
       },
       {
         stageName: 'Stage 2',
         stageSize: 'Menší sál',
-        name: 'Panelová diskuze DEV - Jan Svěrák',
-        description: 'Obě strany mince - tvorba UI z pohledu designu a frontendu',
-        guests: 'Jakub Jetleb, Kateřina N. Voláková, Martin Laudát, Jakub Hájek',
+        name: 'Only Handle It Once a jak daleko se to dá posunout.',
+        description: 'Jakub Hájek',
+        track: 'DSN',
+        id: 'jakub-hajek',
         start: '13:30',
+        end: '14:15',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        name: 'Přestávka',
+        start: '14:15',
         end: '14:30',
       },
     ],
@@ -144,9 +183,23 @@ const program = [
   {
     block: [
       {
-        name: 'Svačina',
-        description: 'Doplnění energie a networking',
-        start: '14:15',
+        stageName: 'Stage 1',
+        stageSize: 'Větší sál',
+        name: 'AI ze mě neudělala vývojáře. Udělala ze mě lepšího designéra.',
+        description: 'Martin Laudát',
+        track: 'DSN',
+        id: 'martin-laudat',
+        start: '14:30',
+        end: '15:15',
+      },
+      {
+        stageName: 'Stage 2',
+        stageSize: 'Menší sál',
+        name: 'Napiš mi Dockerfile. Make no mistakes.',
+        description: 'Jan Smitka',
+        track: 'DEV',
+        id: 'jan-smitka',
+        start: '14:30',
         end: '15:15',
       },
     ],
@@ -154,32 +207,10 @@ const program = [
   {
     block: [
       {
-        stageName: 'Stage 1',
-        stageSize: 'Větší sál',
-        name: 'Jak se dělá obrovský wysiwyg editor plný dynamických výpočtů a dědění',
-        id: 'marian-bencat',
-        description: 'Marian Benčat',
+        name: 'Přestávka',
         start: '15:15',
         end: '16:00',
       },
-      {
-        stageName: 'Stage 2',
-        stageSize: 'Menší sál',
-        name: 'Panelová diskuze MKT - Karel Hladiš',
-        description: 'Jak se liší “úspěšný” e-shop od toho “neúspěšného”?',
-        guests: 'Tomáš Zahálka, Petr Voves, Jan Brož',
-        start: '15:00',
-        end: '16:00',
-      },
-    ],
-  },
-  {
-    block: [
-      {
-        name: 'Pauza',
-        start: '16:00',
-        end: '16:15',
-      },
     ],
   },
   {
@@ -187,19 +218,30 @@ const program = [
       {
         stageName: 'Stage 1',
         stageSize: 'Větší sál',
-        name: 'Figma na křižovatce osudu',
-        id: 'martin-laudat',
-        description: 'Martin Laudát',
-        start: '16:15',
-        end: '17:00',
+        name: 'Bude upřesněno',
+        description: 'Michal Špaček',
+        track: 'DEV',
+        id: 'michal-spacek',
+        start: '16:00',
+        end: '16:45',
       },
       {
         stageName: 'Stage 2',
         stageSize: 'Menší sál',
-        name: 'Jak se programuje programovací jazyk',
-        id: 'stefan-foldesi',
-        description: 'Štefan Földesi',
-        start: '16:15',
+        name: 'Proč obsah bude král i v roce 2027',
+        description: 'Jiří Žofaj',
+        track: 'MKT',
+        id: 'jiri-zofaj',
+        start: '16:00',
+        end: '16:45',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        name: 'Přestávka',
+        start: '16:45',
         end: '17:00',
       },
     ],
@@ -225,42 +267,102 @@ const program = [
   },
 ]
 
+function stageAccent(stageName) {
+  if (!stageName) return 'text-slate-400'
+  if (stageName.includes('1')) return 'text-primary-600'
+  if (stageName.includes('2')) return 'text-emerald-600'
+  return 'text-accent'
+}
+
+function StageLabel({ stageName, track, className }) {
+  const t = TRACKS[track]
+  return (
+    <span
+      className={clsx(
+        'inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider',
+        t ? t.text : stageAccent(stageName),
+        className,
+      )}
+    >
+      <span className={clsx('h-1.5 w-1.5 rounded-full', t ? t.dot : 'bg-current')} />
+      {stageName}
+      {track ? ` (${track})` : ''}
+    </span>
+  )
+}
+
+function TimeRange({ start, end }) {
+  return (
+    <p className="font-mono text-sm text-slate-500">
+      <time dateTime={`T${start}-08:00`}>{start}</time> –{' '}
+      <time dateTime={`T${end}-08:00`}>{end}</time>
+    </p>
+  )
+}
+
 function ProgramTable({ timeBlock }) {
-  const blockWidth = timeBlock.block.length <= 1 ? 'col-span-2' : ''
+  const blockWidth = timeBlock.block.length <= 1 ? 'md:col-span-2' : ''
 
   return (
-    <div className="grid auto-rows-auto grid-cols-2 py-6 first:!bg-white/60 odd:bg-white md:px-6 md:py-6 [&:nth-child(2)]:bg-white">
+    <div className="grid auto-rows-auto grid-cols-1 transition-colors odd:bg-white/40 even:bg-primary-100/30 md:grid-cols-2">
       {timeBlock.block.map((stage, i) => (
         <div
           id={stage.id}
-          className={`${blockWidth} flex flex-col border-r px-4 text-center last:border-r-0 sm:px-8`}
+          className={clsx(
+            blockWidth,
+            'flex scroll-mt-28 flex-col border-b border-primary-100/70 px-4 py-6 text-center last:border-b-0 sm:px-8 md:border-b-0 md:border-r md:last:border-r-0',
+          )}
           key={i}
         >
-          <h4 className="mb-2 font-semibold tracking-tight text-primary-900 sm:text-lg">
-            {stage.name}
-            {/* {stage.stageSize} */}
-          </h4>
-
-          {stage.description && (
-            <p className="mb-4 tracking-tight text-slate-600">
-              {stage.description}
-            </p>
+          {stage.talks ? (
+            <div className="flex h-full flex-col justify-center gap-4">
+              {stage.talks.map((talk, j) => (
+                <div
+                  key={j}
+                  className="flex flex-col items-center gap-1 border-t border-primary-100/70 pt-4 first:border-t-0 first:pt-0"
+                >
+                  <h4 className="font-semibold tracking-tight text-primary-900 sm:text-lg">
+                    {talk.name}
+                  </h4>
+                  <StageLabel stageName={stage.stageName} track={talk.track} />
+                  <TimeRange start={talk.start} end={talk.end} />
+                </div>
+              ))}
+            </div>
+          ) : stage.stageName ? (
+            <>
+              <h4 className="mb-1 font-semibold tracking-tight text-primary-900 sm:text-lg">
+                {stage.name}
+              </h4>
+              {stage.description && (
+                <p className="mb-3 tracking-tight text-slate-600">
+                  {stage.description}
+                </p>
+              )}
+              <StageLabel
+                stageName={stage.stageName}
+                track={stage.track}
+                className="mt-auto justify-center pt-2"
+              />
+              {stage.start && stage.end && (
+                <TimeRange start={stage.start} end={stage.end} />
+              )}
+            </>
+          ) : (
+            <div className="flex flex-1 flex-col items-center justify-center gap-2">
+              <h4 className="font-semibold tracking-tight text-primary-900 sm:text-lg">
+                {stage.name}
+              </h4>
+              {stage.description && (
+                <p className="tracking-tight text-slate-600">
+                  {stage.description}
+                </p>
+              )}
+              {stage.start && stage.end && (
+                <TimeRange start={stage.start} end={stage.end} />
+              )}
+            </div>
           )}
-
-          {stage.guests && (
-            <p className="mb-4 tracking-tight text-slate-600">
-              Hosté: {stage.guests}
-            </p>
-          )}
-
-          <div className="mt-auto font-mono text-sm text-slate-600">
-            {stage.stageName}
-          </div>
-
-          <p className="font-mono text-sm text-slate-600">
-            <time dateTime={`T${stage.start}-08:00`}>{stage.start}</time> -{' '}
-            <time dateTime={`T${stage.end}-08:00`}>{stage.end}</time>
-          </p>
         </div>
       ))}
     </div>
@@ -269,7 +371,7 @@ function ProgramTable({ timeBlock }) {
 
 function ScheduleStatic() {
   return (
-    <div className="mx-auto flex max-w-4xl flex-col overflow-hidden rounded-3xl bg-white/60 shadow-xl shadow-primary-900/5 backdrop-blur">
+    <div className="glass mx-auto flex max-w-4xl flex-col divide-y divide-primary-100/70 overflow-hidden rounded-3xl shadow-card">
       {program.map((stage, i) => (
         <ProgramTable timeBlock={stage} key={i} />
       ))}
@@ -279,19 +381,30 @@ function ScheduleStatic() {
 
 export function Schedule() {
   return (
-    <Section className="relative" id="program">
+    <Section className="relative scroll-mt-24" id="program">
+      {/* Single dot grid; bleeds up behind the Speakers section (-z-10) so the two
+          sections connect seamlessly, with no white gap. */}
+      <div
+        className="bg-dots pointer-events-none absolute inset-x-0 -top-72 bottom-0 -z-10"
+        style={{
+          WebkitMaskImage:
+            'linear-gradient(to bottom, transparent 0px, #000 220px, #000 calc(100% - 180px), transparent 100%)',
+          maskImage:
+            'linear-gradient(to bottom, transparent 0px, #000 220px, #000 calc(100% - 180px), transparent 100%)',
+        }}
+      />
+
       <Container className="relative z-10">
-        <header className="text-center">
-          <h2 className="mb-4 font-display text-4xl font-medium tracking-tighter text-primary-600 sm:text-5xl">
-            Program
-          </h2>
-        </header>
+        <Reveal>
+          <SectionHeading eyebrow="Dva sály, celý den">Program</SectionHeading>
+        </Reveal>
       </Container>
-      <div className="relative mt-8 text-center sm:mt-14">
-        <BackgroundImage position="left" className="-bottom-32 -top-40" />
+      <div className="relative z-10 mt-10 text-center sm:mt-14">
         <Container className="relative">
-          <ScheduleStatic />
-          <BuyTicketButton className="mt-8" />
+          <Reveal>
+            <ScheduleStatic />
+          </Reveal>
+          <BuyTicketButton className="mt-12 sm:mt-14" />
         </Container>
       </div>
     </Section>

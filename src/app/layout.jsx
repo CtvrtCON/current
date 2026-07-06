@@ -1,17 +1,11 @@
-import { Inter, Montserrat_Alternates } from 'next/font/google'
+import { Montserrat_Alternates } from 'next/font/google'
 import clsx from 'clsx'
 
 import '@/styles/tailwind.css'
 
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
-
 const montserratAlternates = Montserrat_Alternates({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-montserrat_alternates',
 })
@@ -31,7 +25,6 @@ export default function RootLayout({ children }) {
       lang="en"
       className={clsx(
         'h-full scroll-smooth bg-white antialiased',
-        inter.variable,
         montserratAlternates.variable,
       )}
     >

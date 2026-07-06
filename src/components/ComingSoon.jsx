@@ -29,9 +29,12 @@ export function ComingSoon() {
             {placeholders.map(({ label, description }) => (
               <div
                 key={label}
-                className="rounded-lg border-2 border-dashed border-primary-300 p-6"
+                className="glass relative overflow-hidden rounded-2xl p-6 shadow-card"
               >
-                <dt className="font-mono text-primary-700">{label}</dt>
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-400 via-primary-400 to-sky-400" />
+                <dt className="font-mono text-sm uppercase tracking-widest text-primary-600">
+                  {label}
+                </dt>
                 <dd className="mt-2 text-sm text-primary-900">{description}</dd>
                 <p className="mt-3 font-mono text-xs uppercase tracking-wider text-primary-500">
                   Připravujeme

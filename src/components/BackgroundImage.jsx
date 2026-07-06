@@ -1,35 +1,33 @@
-import Image from 'next/image'
 import clsx from 'clsx'
 
-import backgroundImage from '@/images/background.webp'
+export function BackgroundImage({ className, position = 'top' }) {
+  const side = position === 'left' ? 'left' : position === 'right' ? 'right' : 'center'
 
-export function BackgroundImage({className, position = 'top'}) {
-    return (
-        <div
-            className={clsx(
-                'absolute inset-0 overflow-hidden bg-primary-100 pointer-events-none',
-                className,
-            )}
-        >
-            <Image
-                className={clsx(
-                    'absolute top-0',
-                    position === 'left' &&
-                    'left-0 translate-x-[-55%] translate-y-[-10%] -scale-x-100 sm:left-1/2 sm:translate-x-[-98%] sm:translate-y-[-6%] lg:translate-x-[-106%] xl:translate-x-[-122%]',
-                    position === 'right' &&
-                    'left-full -translate-x-1/2 sm:left-1/2 sm:translate-x-[-20%] sm:translate-y-[-15%] md:translate-x-0 lg:translate-x-[5%] lg:translate-y-[4%] xl:translate-x-[27%] xl:translate-y-[-8%]',
-                    position === 'top' &&
-                    'hidden sm:block sm:left-1/2 sm:anslate-x-[6%] sm:translate-y-[26%]',
-                )}
-                src={backgroundImage}
-                alt="ČtvrtCON fluida"
-                width={918}
-                height={1495}
-                priority
-                unoptimized
-            />
-            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white pointer-events-none"/>
-            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white pointer-events-none"/>
-        </div>
-    )
+  return (
+    <div
+      className={clsx(
+        'pointer-events-none absolute inset-0 overflow-hidden',
+        className,
+      )}
+    >
+      <div
+        className={clsx(
+          'absolute h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-sky-200/40 via-primary-200/30 to-emerald-200/40 blur-3xl',
+          side === 'left' && '-left-32 -top-16',
+          side === 'right' && '-right-32 -top-16',
+          side === 'center' && 'left-1/2 -top-32 -translate-x-1/2',
+        )}
+      />
+
+      <div
+        className="bg-dots absolute inset-0"
+        style={{
+          WebkitMaskImage:
+            'radial-gradient(ellipse 75% 70% at 50% 45%, #000 35%, transparent 80%)',
+          maskImage:
+            'radial-gradient(ellipse 75% 70% at 50% 45%, #000 35%, transparent 80%)',
+        }}
+      />
+    </div>
+  )
 }

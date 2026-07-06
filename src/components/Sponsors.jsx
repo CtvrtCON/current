@@ -1,7 +1,9 @@
 import Image from 'next/image'
 
 import {Container} from '@/components/Container'
+import {Reveal} from '@/components/Reveal'
 import {Section} from '@/components/Section'
+import {SectionHeading} from '@/components/SectionHeading'
 
 import almaCareerLogo from '@/images/partners/almacareer.png'
 import briloLogo from '@/images/partners/brilo.png'
@@ -132,68 +134,84 @@ const ctvrtkonPartners = [
 
 export function Sponsors() {
     return (
-        <Section className="relative">
+        <Section id="partneri" className="relative scroll-mt-24">
             <Container className="px-8">
-                <header className="text-center">
-                    <h2 className="font-display text-4xl font-medium tracking-tighter text-primary-600 sm:text-5xl">
-                        Partneři
-                    </h2>
-                </header>
-                <div className="mt-14 flex flex-col gap-16">
-                    <div className="flex flex-col items-center gap-6">
-                        <h3 className="font-mono text-sm uppercase tracking-widest text-primary-700">
+                <Reveal>
+                    <SectionHeading eyebrow="Děkujeme">Partneři</SectionHeading>
+                </Reveal>
+                <div className="mt-16 flex flex-col gap-16 sm:gap-20">
+                    <Reveal className="flex flex-col items-center gap-8">
+                        <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-primary-500">
                             Generální partneři
                         </h3>
-                        <div className="flex flex-wrap items-center justify-center gap-x-20 gap-y-10 lg:gap-x-32">
+                        <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-12 lg:gap-x-28">
                             {generalPartners.map((partner) => (
                                 <a
                                     href={partner.url}
                                     key={partner.name}
                                     title={partner.description}
-                                    className="flex max-w-72 items-center justify-center"
+                                    className="flex items-center justify-center transition duration-300 hover:opacity-80"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                 >
-                                    <Image src={partner.logo} alt={partner.name} unoptimized/>
+                                    <Image
+                                        src={partner.logo}
+                                        alt={partner.name}
+                                        className="max-h-48 w-auto max-w-full object-contain sm:max-h-72"
+                                        unoptimized
+                                    />
                                 </a>
                             ))}
                         </div>
-                    </div>
-                    <div className="flex flex-col items-center gap-6">
-                        <h3 className="font-mono text-sm uppercase tracking-widest text-primary-700">
+                    </Reveal>
+                    <Reveal className="flex flex-col items-center gap-7">
+                        <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-primary-500">
                             Partneři akce
                         </h3>
-                        <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 lg:gap-x-24">
+                        <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-10 lg:gap-x-20">
                             {eventPartners.map((partner) => (
                                 <a
                                     href={partner.url}
                                     key={partner.name}
                                     title={partner.description}
-                                    className="flex max-w-56 items-center justify-center"
+                                    className="flex items-center justify-center transition duration-300 hover:opacity-80"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                 >
-                                    <Image src={partner.logo} alt={partner.name} unoptimized/>
+                                    <Image
+                                        src={partner.logo}
+                                        alt={partner.name}
+                                        className="max-h-32 w-auto max-w-full object-contain sm:max-h-48"
+                                        unoptimized
+                                    />
                                 </a>
                             ))}
                         </div>
-                    </div>
-                    <div className="flex flex-col items-center gap-6">
-                        <h3 className="font-mono text-sm uppercase tracking-widest text-primary-700">
+                    </Reveal>
+                    <Reveal className="flex flex-col items-center gap-6">
+                        <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-primary-500">
                             Čtvrtkon partneři
                         </h3>
-                        <div className="grid grid-cols-2 gap-x-12 gap-y-8 sm:gap-x-12 md:grid-cols-4 md:gap-x-24 md:gap-y-12">
+                        <div className="grid w-full grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3">
                             {ctvrtkonPartners.map((partner) => (
                                 <a
                                     href={partner.url}
                                     key={partner.name}
                                     title={partner.description}
-                                    className="m-auto block max-w-40 self-center justify-center"
+                                    className="group glass flex items-center justify-center rounded-2xl px-6 py-5 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-card"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                 >
-                                    <Image src={partner.logo} alt={partner.name} unoptimized/>
+                                    <Image
+                                        src={partner.logo}
+                                        alt={partner.name}
+                                        className="max-h-16 w-auto max-w-full object-contain sm:max-h-24"
+                                        unoptimized
+                                    />
                                 </a>
                             ))}
                         </div>
-                    </div>
+                    </Reveal>
                 </div>
             </Container>
         </Section>

@@ -5,98 +5,131 @@ import Image from 'next/image'
 import { TabGroup, TabPanel, TabPanels } from '@headlessui/react'
 import clsx from 'clsx'
 
+import { BuyTicketButton } from '@/components/BuyTicketButton'
 import { Container } from '@/components/Container'
+import { Reveal } from '@/components/Reveal'
 import { Section } from '@/components/Section'
-//import daliborjarosImage from '@/images/avatars/daliborjaros.webp'
-import davidzelenkaImage from '@/images/avatars/davidzelenka.webp'
-import jakubhajekImage from '@/images/avatars/jakubhajek.webp'
-import marianbencatImage from '@/images/avatars/marianbencat.webp'
-import martinhrabanekImage from '@/images/avatars/martinhrabanek.webp'
-import martinlaudatImage from '@/images/avatars/martinlaudat.webp'
-import martinvastlImage from '@/images/avatars/martinvastl.webp'
-import petrstastnyImage from '@/images/avatars/petrstastny.webp'
-import petrurbanImage from '@/images/avatars/petrurban.webp'
-import stefanfoldesiImage from '@/images/avatars/stefanfoldesi.webp'
-import tomaszahalkaImage from '@/images/avatars/tomaszahalka.webp'
+import { SectionHeading } from '@/components/SectionHeading'
+import { TRACKS } from '@/components/tracks'
+import vaclavNovotnyImage from '@/images/avatars/vaclav-novotny.webp'
+import martinStrouhalImage from '@/images/avatars/martin-strouhal.webp'
+import petrSoukupImage from '@/images/avatars/petr-soukup.webp'
+import vladaSmitkaImage from '@/images/avatars/vlada-smitka.webp'
+import janSmitkaImage from '@/images/avatars/jan-smitka.webp'
+import michalSpacekImage from '@/images/avatars/michal-spacek.webp'
+import jiriZofajImage from '@/images/avatars/jiri-zofaj.webp'
+import karelSimekImage from '@/images/avatars/karel-simek.webp'
+import petrVovesImage from '@/images/avatars/petr-voves.webp'
+import martinLaudatImage from '@/images/avatars/martin-laudat.webp'
+import jakubHajekImage from '@/images/avatars/jakub-hajek.webp'
+import martinHrabanekImage from '@/images/avatars/martin-hrabanek.webp'
 
 const days = [
   {
     name: 'Speakers',
-    dateTime: '2024-11-23',
+    dateTime: '2026-11-28',
     speakers: [
-      {
-        name: 'David Zelenka',
-        url: '#david-zelenka',
-        role: 'Chief Marketing Officer',
-        company: 'Brilo Team',
-        image: davidzelenkaImage,
-      },
       {
         name: 'Jakub Hájek',
         url: '#jakub-hajek',
-        role: 'Head of UX & Design',
-        company: 'Brilo Team',
-        image: jakubhajekImage,
-      },
-      {
-        name: 'Marian Benčat',
-        url: '#marian-bencat',
-        role: 'Konzultant a programátor na volné noze',
-        company: '',
-        image: marianbencatImage,
+        role: 'UX Designer & AI Architect',
+        company: 'Jakub Hájek Rocks',
+        track: 'DSN',
+        image: jakubHajekImage,
       },
       {
         name: 'Martin Hrabánek',
         url: '#martin-hrabanek',
         role: 'Brand designer',
         company: 'Brandtastic!',
-        image: martinhrabanekImage,
+        track: 'DSN',
+        image: martinHrabanekImage,
       },
       {
         name: 'Martin Laudát',
         url: '#martin-laudat',
-        role: 'Lead Product Designer & Design System Manager',
+        role: 'Lead Product Designer',
         company: 'Dotidot',
-        image: martinlaudatImage,
+        track: 'DSN',
+        image: martinLaudatImage,
       },
       {
-        name: 'Martin Vastl',
-        url: '#martin-vastl',
-        role: 'Nezávislý machine learning engineer a researcher',
-        company: '',
-        image: martinvastlImage,
+        name: 'Václav Novotný',
+        url: '#vaclav-novotny',
+        role: 'co-founder penmate.ai',
+        company: 'Headers',
+        track: 'DEV',
+        image: vaclavNovotnyImage,
       },
       {
-        name: 'Petr	Šťastný',
-        url: '#petr-stastny',
-        role: 'DevOps & cloud master na volné noze',
-        company: '',
-        image: petrstastnyImage,
+        name: 'Jan Smitka',
+        url: '#jan-smitka',
+        role: 'Tech lead & software engineer',
+        company: 'LYNT services',
+        track: 'DEV',
+        image: janSmitkaImage,
       },
       {
-        name: 'Petr Urban',
-        url: '#petr-urban',
-        role: 'Lead Software Engineer',
-        company: 'JLL',
-        image: petrurbanImage,
+        name: 'Vladimír Smitka',
+        url: '#vladimir-smitka',
+        role: 'Boss, Analytika, Servery, IT',
+        company: 'LYNT services',
+        track: 'DEV',
+        image: vladaSmitkaImage,
       },
       {
-        name: 'Štefan Földesi',
-        url: '#stefan-foldesi',
-        role: 'Product Manager',
-        company: 'GoPay',
-        image: stefanfoldesiImage,
+        name: 'Petr Soukup',
+        url: '#petr-soukup',
+        role: 'Chief People Eliminator',
+        company: 'Simplia.cz',
+        track: 'DEV',
+        image: petrSoukupImage,
       },
       {
-        name: 'Tomáš Zahálka',
-        url: '#tomas-zahalka',
-        role: 'SEO / PPC specialista pro Shoptet klienty s nízkým pudem sebezáchovy',
-        company: '',
-        image: tomaszahalkaImage,
+        name: 'Martin Strouhal',
+        url: '#martin-strouhal',
+        role: 'Vývojář a architekt',
+        company: 'SmartEmailing',
+        track: 'DEV',
+        image: martinStrouhalImage,
+      },
+      {
+        name: 'Karel Šimek',
+        url: '#karel-simek',
+        role: 'Founder & CEO',
+        company: 'Adventurer Solutions',
+        track: 'MKT',
+        image: karelSimekImage,
+      },
+      {
+        name: 'Michal Špaček',
+        url: '#michal-spacek',
+        role: 'Head of Security',
+        company: 'Shoptet',
+        track: 'DEV',
+        image: michalSpacekImage,
+      },
+      {
+        name: 'Petr Voves',
+        url: '#petr-voves',
+        role: 'CEO',
+        company: 'OchutnejOrech.cz',
+        track: 'MKT',
+        image: petrVovesImage,
+      },
+      {
+        name: 'Jiří Žofaj',
+        url: '#jiri-zofaj',
+        role: 'Zalívač květin a CEO v RESULTIO',
+        company: 'RESULTIO',
+        track: 'MKT',
+        image: jiriZofajImage,
       },
     ],
   },
 ]
+
+days[0].speakers.sort((a, b) => a.name.localeCompare(b.name, 'cs'))
 
 function ImageClipPaths({ id, ...props }) {
   return (
@@ -120,82 +153,99 @@ export function Speakers() {
   let id = useId()
 
   return (
-    <Section className="relative">
+    <Section id="prednasejici" className="relative scroll-mt-24">
       <ImageClipPaths id={id} />
       <Container>
-        <header className="text-center">
-          <h2
-            id="speakers-title"
-            className="font-display text-4xl font-medium tracking-tighter text-primary-600 sm:text-5xl"
-          >
+        <Reveal>
+          <SectionHeading eyebrow="Kdo vystoupí" id="speakers-title">
             Přednášející
-          </h2>
-        </header>
+          </SectionHeading>
+        </Reveal>
 
-        <TabGroup className="mt-14 grid grid-cols-1 items-start gap-x-8 gap-y-8 sm:mt-16 sm:gap-y-16 lg:mt-24 lg:grid-cols-4">
+        <TabGroup className="mt-14 grid grid-cols-1 items-start gap-x-8 gap-y-8 sm:mt-16 sm:gap-y-16 lg:mt-20 lg:grid-cols-4">
           <TabPanels className="lg:col-span-4">
             {days.map((day) => (
               <TabPanel
                 key={day.dateTime}
-                className="grid grid-cols-1 gap-x-10 gap-y-12 ui-not-focus-visible:outline-none xs:grid-cols-2 xs:gap-y-10 lg:grid-cols-5"
+                className="grid grid-cols-1 gap-x-10 gap-y-12 ui-not-focus-visible:outline-none xs:grid-cols-2 xs:gap-y-10 lg:grid-cols-4"
                 unmount={false}
               >
-                {day.speakers.map((speaker, speakerIndex) => (
-                  <div
-                    key={speakerIndex}
-                    className="flex flex-col items-center gap-4"
-                  >
-                    <a
-                      className="group relative block aspect-square w-full max-w-56 transform overflow-hidden rounded-4xl"
-                      href={speaker.url}
+                {day.speakers.map((speaker, speakerIndex) => {
+                  const track = TRACKS[speaker.track]
+                  return (
+                    <Reveal
+                      key={speakerIndex}
+                      delay={(speakerIndex % 4) * 60}
+                      className="group flex flex-col items-center gap-4"
                     >
-                      <div
-                        className={clsx(
-                          'absolute bottom-6 left-0 right-4 top-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6',
-                          [
-                            'border-primary-300',
-                            'border-primary-100',
-                            'border-sky-300',
-                          ][speakerIndex % 3],
-                        )}
-                      />
-                      <div
-                        className="absolute inset-0 bg-primary-50"
-                        style={{ clipPath: `url(#${id}-${speakerIndex % 3})` }}
-                      >
-                        <Image
-                          className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-110"
-                          src={speaker.image}
-                          alt=""
-                          priority
-                          sizes="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
-                        />
-                      </div>
-                    </a>
-                    <div className="flex flex-col gap-2 text-center">
                       <a
+                        className="relative block aspect-square w-full max-w-56 transform overflow-hidden rounded-4xl transition duration-300 group-hover:-translate-y-1"
                         href={speaker.url}
-                        className="text-primary-600 hover:underline"
                       >
-                        <h3 className="font-display text-xl font-bold tracking-tight">
-                          {speaker.name}
-                        </h3>
+                        <div
+                          className={clsx(
+                            'absolute bottom-6 left-0 right-4 top-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6',
+                            track ? track.border : 'border-primary-200',
+                          )}
+                        />
+                        <div
+                          className="absolute inset-0 bg-primary-50 shadow-sm transition duration-300 group-hover:shadow-xl"
+                          style={{ clipPath: `url(#${id}-${speakerIndex % 3})` }}
+                        >
+                          <Image
+                            className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                            src={speaker.image}
+                            alt=""
+                            priority
+                            unoptimized
+                            sizes="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+                          />
+                        </div>
                       </a>
-                      <p className="text-base tracking-tight text-primary-900">
-                        {speaker.role}
-                        {speaker.company && (
-                          <span>
-                            <br />@ {speaker.company}
+                      <div className="flex flex-col items-center gap-1.5 text-center">
+                        {track && (
+                          <span
+                            className={clsx(
+                              'inline-flex items-center gap-1.5 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.2em]',
+                              track.text,
+                            )}
+                          >
+                            <span
+                              className={clsx('h-1.5 w-1.5 rounded-full', track.dot)}
+                            />
+                            {track.code}
                           </span>
                         )}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                        <a
+                          href={speaker.url}
+                          className="text-primary-700 hover:underline"
+                        >
+                          <h3 className="font-display text-xl font-bold tracking-tight">
+                            {speaker.name}
+                          </h3>
+                        </a>
+                        {speaker.role && (
+                          <p className="text-sm tracking-tight text-primary-900/80">
+                            {speaker.role}
+                            {speaker.company && (
+                              <span>
+                                <br />@ {speaker.company}
+                              </span>
+                            )}
+                          </p>
+                        )}
+                      </div>
+                    </Reveal>
+                  )
+                })}
               </TabPanel>
             ))}
           </TabPanels>
         </TabGroup>
+
+        <div className="mt-14 text-center sm:mt-16">
+          <BuyTicketButton />
+        </div>
       </Container>
     </Section>
   )
