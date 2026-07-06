@@ -278,7 +278,7 @@ function StageLabel({ stageName, track, className }) {
   )
 }
 
-// "8:00" → "08:00": platná hodnota atributu <time> vyžaduje dvouciferné hodiny.
+// "8:00" -> "08:00": a valid <time> value needs a two-digit hour.
 function toTimeValue(t) {
   return t.padStart(5, '0')
 }

@@ -13,17 +13,17 @@ export function Hero() {
   return (
     <Section id="top" className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        {/* Plošný svislý přechod přes celý hero — na velkých monitorech drží barvu
-            shora dolů, kam rohové skvrny s pevnou velikostí nedosáhnou. */}
+        {/* Full-height vertical wash across the hero — holds color top-to-bottom on
+            large monitors, where the fixed-size corner blobs can't reach. */}
         <div className="absolute inset-0 bg-gradient-to-b from-sky-100/60 via-primary-50/20 to-emerald-100/50" />
-        {/* Barevné skvrny pro hloubku a „život“ — vpravo nahoře a vlevo dole,
-            aby barva prostupovala diagonálně shora dolů. */}
+        {/* Color blobs for depth and life — top-right and bottom-left so the color
+            flows diagonally top-to-bottom. */}
         <div className="absolute -right-40 -top-40 h-[52rem] w-[52rem] rounded-full bg-gradient-to-br from-sky-200/60 via-primary-200/50 to-emerald-200/60 blur-3xl motion-safe:animate-drift" />
         <div className="absolute -bottom-40 -left-32 h-[40rem] w-[40rem] rounded-full bg-gradient-to-tr from-emerald-200/55 via-primary-100/30 to-transparent blur-3xl motion-safe:animate-drift" />
       </div>
 
-      {/* Hairline předěly nahoře i dole (stejné jako u partnerů/patičky), aby
-          barevný přechod hero čistě začínal i končil proti sousedním sekcím. */}
+      {/* Hairline dividers top and bottom (same as partners/footer) so the hero
+          wash starts and ends cleanly against the neighboring sections. */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />
 

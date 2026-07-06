@@ -15,7 +15,7 @@ const sizes = {
 
 export function Button({ className, variant = 'primary', size = 'md', rel, ...props }) {
   className = clsx(
-    'inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition duration-300 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 active:translate-y-px disabled:opacity-60',
+    'inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition duration-300 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60',
     sizes[size] ?? sizes.md,
     variants[variant] ?? variants.primary,
     className,

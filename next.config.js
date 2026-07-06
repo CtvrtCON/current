@@ -3,7 +3,7 @@ const nextConfig = {
     basePath: "/ctvrtcon",
     output: "export",
     reactStrictMode: true,
-    // Statický export nedokáže optimalizovat obrázky za běhu.
+    // Static export can't optimize images at runtime.
     images: {unoptimized: true},
 }
 

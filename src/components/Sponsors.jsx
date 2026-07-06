@@ -133,14 +133,14 @@ const ctvrtkonPartners = [
     },
 ]
 
-// Jedna vizuální hierarchie tří úrovní partnerů: čím výš, tím větší dlaždice i logo.
+// One visual hierarchy across the three partner tiers: higher tier = bigger tile and logo.
 const cardSize = {
     lg: 'rounded-3xl px-8 py-8 sm:px-10 sm:py-10',
     md: 'rounded-2xl px-6 py-6 sm:py-7',
     sm: 'rounded-2xl px-6 py-5',
 }
 
-// Poměr důležitosti 3 : 2 : 1 (generální : akce : Čtvrtkon).
+// Importance ratio 3 : 2 : 1 (general : event : Čtvrtkon).
 const logoSize = {
     lg: 'max-h-48 sm:max-h-72',
     md: 'max-h-32 sm:max-h-48',
@@ -196,9 +196,9 @@ function PartnerCard({partner, size}) {
 export function Sponsors() {
     return (
         <Section id="partneri" className="relative scroll-mt-24 overflow-hidden">
-            {/* Barevný přechod napříč celou sekcí, maskovaný eliptickou radiálou
-                do ztracena na všech čtyřech stranách — silný uprostřed, mizí k okrajům.
-                Odliší finální sekci od tečkovaných sekcí nad ní. */}
+            {/* Full-section color wash, masked with an elliptical radial so it fades
+                out on all four sides — strong in the center, gone at the edges.
+                Sets the final section apart from the dotted sections above. */}
             <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
                 <div
                     className="absolute inset-0 bg-gradient-to-br from-sky-200/50 via-primary-200/40 to-emerald-200/50 motion-safe:animate-drift"
@@ -211,8 +211,8 @@ export function Sponsors() {
                 />
             </div>
 
-            {/* Horní hairline předěl (stejný jako nad patičkou), ať přechod nekončí
-                natvrdo a sekce je shora čistě ohraničená. */}
+            {/* Top hairline divider (same as above the footer) so the wash doesn't
+                end abruptly and the section is cleanly bounded at the top. */}
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />
 
             <Container className="relative px-8">

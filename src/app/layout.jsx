@@ -15,7 +15,7 @@ const description =
   'Druhý ročník celodenní Čtvrtkon konference. 28. 11. 2026, Riegrova 51, České Budějovice.'
 
 export const metadata = {
-  // TODO: potvrdit produkční doménu (souvisí s basePath). Slouží k absolutním URL v OG/Twitter.
+  // TODO: confirm the production domain (tied to basePath). Used for absolute URLs in OG/Twitter.
   metadataBase: new URL('https://ctvrtcon.cz'),
   title: {
     template: '%s - ČtvrtCON',
@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
       )}
     >
       <head>
-        {/* Bez JS se odkrývaný obsah (.reveal) nezobrazí — vynutíme jeho viditelnost. */}
+        {/* Without JS the revealed content (.reveal) stays hidden — force it visible. */}
         <noscript>
           <style>{`.reveal{opacity:1!important;transform:none!important}`}</style>
         </noscript>
