@@ -21,8 +21,8 @@ export function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.8fr]">
           <div className="flex max-w-2xl flex-col items-start gap-6">
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary-500 sm:text-sm">
-              SO · <time dateTime="2026-11-28">28. 11. 2026</time> · České
-              Budějovice · 2. ročník
+              SO · <time dateTime="2026-11-28">28. 11. 2026</time> · Riegrova
+              51, České Budějovice
             </p>
 
             <h1 className="font-display font-bold leading-[1.05] tracking-tight text-primary-800">

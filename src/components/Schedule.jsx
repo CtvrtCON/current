@@ -33,7 +33,6 @@ const program = [
     block: [
       {
         stageName: 'Stage 1',
-        stageSize: 'Větší sál',
         name: 'Naprogramuješ cokoliv. A co dál?',
         description: 'Václav Novotný',
         track: 'DEV',
@@ -43,7 +42,6 @@ const program = [
       },
       {
         stageName: 'Stage 2',
-        stageSize: 'Menší sál',
         name: 'Marketing v pohorách: Příběh budování startupu Adventurer',
         description: 'Karel Šimek',
         track: 'MKT',
@@ -66,7 +64,6 @@ const program = [
     block: [
       {
         stageName: 'Stage 1',
-        stageSize: 'Větší sál',
         name: 'Bude upřesněno',
         description: 'Martin Hrabánek',
         track: 'DSN',
@@ -76,7 +73,6 @@ const program = [
       },
       {
         stageName: 'Stage 2',
-        stageSize: 'Menší sál',
         name: 'SQLite je na nic',
         description: 'Martin Strouhal',
         track: 'DEV',
@@ -96,7 +92,6 @@ const program = [
       },
       {
         stageName: 'Stage 2',
-        stageSize: 'Menší sál',
         talks: [
           {
             name: 'Rozhovor: Karel Hladiš a host',
@@ -118,7 +113,6 @@ const program = [
     block: [
       {
         stageName: 'Stage 1',
-        stageSize: 'Větší sál',
         name: 'Bude upřesněno',
         description: 'Petr Voves',
         track: 'MKT',
@@ -128,7 +122,6 @@ const program = [
       },
       {
         stageName: 'Stage 2',
-        stageSize: 'Menší sál',
         name: 'Začněte s HW programováním ještě dnes',
         description: 'Vladimír Smitka',
         track: 'DEV',
@@ -151,7 +144,6 @@ const program = [
     block: [
       {
         stageName: 'Stage 1',
-        stageSize: 'Větší sál',
         name: 'Jak se změní IT firmy v době vibe codérů',
         description: 'Petr Soukup',
         track: 'DEV',
@@ -161,7 +153,6 @@ const program = [
       },
       {
         stageName: 'Stage 2',
-        stageSize: 'Menší sál',
         name: 'Only Handle It Once a jak daleko se to dá posunout.',
         description: 'Jakub Hájek',
         track: 'DSN',
@@ -184,7 +175,6 @@ const program = [
     block: [
       {
         stageName: 'Stage 1',
-        stageSize: 'Větší sál',
         name: 'AI ze mě neudělala vývojáře. Udělala ze mě lepšího designéra.',
         description: 'Martin Laudát',
         track: 'DSN',
@@ -194,7 +184,6 @@ const program = [
       },
       {
         stageName: 'Stage 2',
-        stageSize: 'Menší sál',
         name: 'Napiš mi Dockerfile. Make no mistakes.',
         description: 'Jan Smitka',
         track: 'DEV',
@@ -217,7 +206,6 @@ const program = [
     block: [
       {
         stageName: 'Stage 1',
-        stageSize: 'Větší sál',
         name: 'Bude upřesněno',
         description: 'Michal Špaček',
         track: 'DEV',
@@ -227,7 +215,6 @@ const program = [
       },
       {
         stageName: 'Stage 2',
-        stageSize: 'Menší sál',
         name: 'Proč obsah bude král i v roce 2027',
         description: 'Jiří Žofaj',
         track: 'MKT',
@@ -291,11 +278,16 @@ function StageLabel({ stageName, track, className }) {
   )
 }
 
+// "8:00" → "08:00": platná hodnota atributu <time> vyžaduje dvouciferné hodiny.
+function toTimeValue(t) {
+  return t.padStart(5, '0')
+}
+
 function TimeRange({ start, end }) {
   return (
     <p className="font-mono text-sm text-slate-500">
-      <time dateTime={`T${start}-08:00`}>{start}</time> –{' '}
-      <time dateTime={`T${end}-08:00`}>{end}</time>
+      <time dateTime={toTimeValue(start)}>{start}</time> –{' '}
+      <time dateTime={toTimeValue(end)}>{end}</time>
     </p>
   )
 }

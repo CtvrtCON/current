@@ -39,7 +39,7 @@ export function Reveal({ as: Tag = 'div', delay = 0, className, children }) {
       ref={ref}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
       className={clsx(
-        'transition-all duration-700 ease-out',
+        'reveal transition-all duration-700 ease-out',
         shown ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0',
         className,
       )}
