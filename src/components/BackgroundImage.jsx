@@ -1,7 +1,8 @@
 import clsx from 'clsx'
 
 export function BackgroundImage({ className, position = 'top' }) {
-  const side = position === 'left' ? 'left' : position === 'right' ? 'right' : 'center'
+  const side =
+    position === 'left' ? 'left' : position === 'right' ? 'right' : 'center'
 
   return (
     <div
@@ -15,7 +16,7 @@ export function BackgroundImage({ className, position = 'top' }) {
           'absolute h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-sky-200/40 via-primary-200/30 to-emerald-200/40 blur-3xl',
           side === 'left' && '-left-32 -top-16',
           side === 'right' && '-right-32 -top-16',
-          side === 'center' && 'left-1/2 -top-32 -translate-x-1/2',
+          side === 'center' && '-top-32 left-1/2 -translate-x-1/2',
         )}
       />
 

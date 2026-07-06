@@ -10,7 +10,10 @@ export function SectionHeading({
 }) {
   return (
     <header
-      className={clsx(align === 'center' ? 'text-center' : 'text-left', className)}
+      className={clsx(
+        align === 'center' ? 'text-center' : 'text-left',
+        className,
+      )}
     >
       {eyebrow && (
         <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-primary-600">

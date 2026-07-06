@@ -21,9 +21,9 @@ export function ComingSoon() {
             Brzy zveřejníme
           </h2>
           <p className="max-w-2xl text-primary-900">
-            Speakery a program druhého ročníku právě domlouváme. Stránku
-            budeme průběžně doplňovat — sledujte nás a nezmeškáte nic
-            podstatného. Partnery najdete níže.
+            Speakery a program druhého ročníku právě domlouváme. Stránku budeme
+            průběžně doplňovat — sledujte nás a nezmeškáte nic podstatného.
+            Partnery najdete níže.
           </p>
           <dl className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2">
             {placeholders.map(({ label, description }) => (

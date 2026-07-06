@@ -13,7 +13,13 @@ const sizes = {
   sm: 'px-4 py-2 text-sm',
 }
 
-export function Button({ className, variant = 'primary', size = 'md', rel, ...props }) {
+export function Button({
+  className,
+  variant = 'primary',
+  size = 'md',
+  rel,
+  ...props
+}) {
   className = clsx(
     'inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition duration-300 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60',
     sizes[size] ?? sizes.md,
@@ -21,7 +27,8 @@ export function Button({ className, variant = 'primary', size = 'md', rel, ...pr
     className,
   )
 
-  const relValue = rel ?? (props.target === '_blank' ? 'noopener noreferrer' : undefined)
+  const relValue =
+    rel ?? (props.target === '_blank' ? 'noopener noreferrer' : undefined)
 
   return typeof props.href === 'undefined' ? (
     <button className={className} {...props} />

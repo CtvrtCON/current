@@ -73,7 +73,11 @@ export function Countdown({ className }) {
           className="glass flex min-w-[3.75rem] flex-col items-center rounded-2xl px-3 py-2 shadow-card"
         >
           <span className="font-mono text-2xl font-semibold tabular-nums text-accent sm:text-3xl">
-            {parts === null ? '––' : key === 'days' ? parts[key] : pad(parts[key])}
+            {parts === null
+              ? '––'
+              : key === 'days'
+                ? parts[key]
+                : pad(parts[key])}
           </span>
           <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-primary-600">
             {label}

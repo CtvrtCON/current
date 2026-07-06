@@ -191,7 +191,9 @@ export function Speakers() {
                         />
                         <div
                           className="absolute inset-0 bg-primary-50 shadow-sm transition duration-300 group-hover:shadow-xl"
-                          style={{ clipPath: `url(#${id}-${speakerIndex % 3})` }}
+                          style={{
+                            clipPath: `url(#${id}-${speakerIndex % 3})`,
+                          }}
                         >
                           <Image
                             className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-110"
@@ -211,7 +213,10 @@ export function Speakers() {
                             )}
                           >
                             <span
-                              className={clsx('h-1.5 w-1.5 rounded-full', track.dot)}
+                              className={clsx(
+                                'h-1.5 w-1.5 rounded-full',
+                                track.dot,
+                              )}
                             />
                             {track.code}
                           </span>

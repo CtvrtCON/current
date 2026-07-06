@@ -55,7 +55,9 @@ export function Hero() {
                     track.chip,
                   )}
                 >
-                  <span className={clsx('h-1.5 w-1.5 rounded-full', track.dot)} />
+                  <span
+                    className={clsx('h-1.5 w-1.5 rounded-full', track.dot)}
+                  />
                   {track.code}
                 </span>
               ))}
@@ -69,9 +71,9 @@ export function Hero() {
               </p>
               <p className="text-base text-primary-900/80">
                 Čekají na Vás dva sály s přednáškami souběžně a přestávky na
-                networking. Než to začne, tak si dáme snídani, mezi i něco k obědu
-                a odpoledne bude připravena svačina. A kdo bude chtít, tak může
-                pokračovat na after párty přímo na místě.
+                networking. Než to začne, tak si dáme snídani, mezi i něco k
+                obědu a odpoledne bude připravena svačina. A kdo bude chtít, tak
+                může pokračovat na after párty přímo na místě.
               </p>
             </div>
 
