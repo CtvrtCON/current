@@ -179,7 +179,7 @@ function PartnerCard({partner, size}) {
             target="_blank"
             rel="noopener noreferrer"
             className={clsx(
-                'group glass flex items-center justify-center shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-card',
+                'group flex items-center justify-center border border-primary-100 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-card',
                 cardSize[size],
             )}
         >

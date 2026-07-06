@@ -13,9 +13,19 @@ export function Hero() {
   return (
     <Section id="top" className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute -right-40 -top-40 h-[46rem] w-[46rem] rounded-full bg-gradient-to-br from-sky-200/50 via-primary-200/40 to-emerald-200/50 blur-3xl motion-safe:animate-drift" />
-        <div className="absolute -left-28 top-1/2 h-72 w-72 rounded-full bg-emerald-100/50 blur-3xl" />
+        {/* Plošný svislý přechod přes celý hero — na velkých monitorech drží barvu
+            shora dolů, kam rohové skvrny s pevnou velikostí nedosáhnou. */}
+        <div className="absolute inset-0 bg-gradient-to-b from-sky-100/60 via-primary-50/20 to-emerald-100/50" />
+        {/* Barevné skvrny pro hloubku a „život“ — vpravo nahoře a vlevo dole,
+            aby barva prostupovala diagonálně shora dolů. */}
+        <div className="absolute -right-40 -top-40 h-[52rem] w-[52rem] rounded-full bg-gradient-to-br from-sky-200/60 via-primary-200/50 to-emerald-200/60 blur-3xl motion-safe:animate-drift" />
+        <div className="absolute -bottom-40 -left-32 h-[40rem] w-[40rem] rounded-full bg-gradient-to-tr from-emerald-200/55 via-primary-100/30 to-transparent blur-3xl motion-safe:animate-drift" />
       </div>
+
+      {/* Hairline předěly nahoře i dole (stejné jako u partnerů/patičky), aby
+          barevný přechod hero čistě začínal i končil proti sousedním sekcím. */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />
 
       <Container className="relative">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.8fr]">
