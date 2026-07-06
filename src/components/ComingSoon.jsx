@@ -36,7 +36,7 @@ export function ComingSoon() {
                   {label}
                 </dt>
                 <dd className="mt-2 text-sm text-primary-900">{description}</dd>
-                <p className="mt-3 font-mono text-xs uppercase tracking-wider text-primary-500">
+                <p className="mt-3 font-mono text-xs uppercase tracking-wider text-primary-600">
                   Připravujeme
                 </p>
               </div>

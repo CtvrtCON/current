@@ -313,9 +313,9 @@ function ProgramTable({ timeBlock }) {
                   key={j}
                   className="flex flex-col items-center gap-1 border-t border-primary-100/70 pt-4 first:border-t-0 first:pt-0"
                 >
-                  <h4 className="font-semibold tracking-tight text-primary-900 sm:text-lg">
+                  <h3 className="font-semibold tracking-tight text-primary-900 sm:text-lg">
                     {talk.name}
-                  </h4>
+                  </h3>
                   <StageLabel stageName={stage.stageName} track={talk.track} />
                   <TimeRange start={talk.start} end={talk.end} />
                 </div>
@@ -323,9 +323,9 @@ function ProgramTable({ timeBlock }) {
             </div>
           ) : stage.stageName ? (
             <>
-              <h4 className="mb-1 font-semibold tracking-tight text-primary-900 sm:text-lg">
+              <h3 className="mb-1 font-semibold tracking-tight text-primary-900 sm:text-lg">
                 {stage.name}
-              </h4>
+              </h3>
               {stage.description && (
                 <p className="mb-3 tracking-tight text-slate-600">
                   {stage.description}
@@ -342,9 +342,9 @@ function ProgramTable({ timeBlock }) {
             </>
           ) : (
             <div className="flex flex-1 flex-col items-center justify-center gap-2">
-              <h4 className="font-semibold tracking-tight text-primary-900 sm:text-lg">
+              <h3 className="font-semibold tracking-tight text-primary-900 sm:text-lg">
                 {stage.name}
-              </h4>
+              </h3>
               {stage.description && (
                 <p className="tracking-tight text-slate-600">
                   {stage.description}

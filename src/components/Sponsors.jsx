@@ -225,7 +225,7 @@ export function Sponsors() {
                             key={tier.title}
                             className="flex w-full flex-col items-center gap-8"
                         >
-                            <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-primary-500">
+                            <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-primary-600">
                                 {tier.title}
                             </h3>
                             <div className={clsx('grid w-full', tier.wrap, tier.grid)}>

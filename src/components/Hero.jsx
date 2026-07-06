@@ -30,14 +30,14 @@ export function Hero() {
       <Container className="relative">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.8fr]">
           <div className="flex max-w-2xl flex-col items-start gap-6">
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary-500 sm:text-sm">
+            <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary-600 sm:text-sm">
               SO · <time dateTime="2026-11-28">28. 11. 2026</time> · Riegrova
               51, České Budějovice
             </p>
 
             <h1 className="font-display font-bold leading-[1.05] tracking-tight text-primary-800">
               <span className="sr-only">Čtvrtkon - </span>
-              <span className="block whitespace-nowrap text-4xl sm:text-6xl lg:text-7xl">
+              <span className="block whitespace-normal text-4xl xs:whitespace-nowrap sm:text-6xl lg:text-7xl">
                 ČtvrtCON <span className="text-gradient">2026</span>
               </span>
               <span className="mt-3 block text-2xl font-medium text-primary-500 lg:text-4xl">

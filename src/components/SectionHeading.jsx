@@ -13,7 +13,7 @@ export function SectionHeading({
       className={clsx(align === 'center' ? 'text-center' : 'text-left', className)}
     >
       {eyebrow && (
-        <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-primary-500">
+        <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-primary-600">
           {eyebrow}
         </p>
       )}

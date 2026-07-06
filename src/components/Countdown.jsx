@@ -75,7 +75,7 @@ export function Countdown({ className }) {
           <span className="font-mono text-2xl font-semibold tabular-nums text-accent sm:text-3xl">
             {parts === null ? '––' : key === 'days' ? parts[key] : pad(parts[key])}
           </span>
-          <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-primary-500">
+          <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-primary-600">
             {label}
           </span>
         </div>
