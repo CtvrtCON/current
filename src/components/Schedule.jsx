@@ -206,7 +206,7 @@ const program = [
     block: [
       {
         stageName: 'Stage 1',
-        name: 'Bude upřesněno',
+        name: 'Supply chain security - aby vás jeden divnej commit v používané knihovně moc nesejmul',
         description: 'Michal Špaček',
         track: 'DEV',
         id: 'michal-spacek',
