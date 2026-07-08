@@ -81,20 +81,37 @@ export function Hero() {
 
             <div className="mt-2 flex flex-wrap items-center gap-4">
               <BuyTicketButton />
-              <Button
-                variant="secondary"
-                href="https://2024.ctvrtcon.cz"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ročník 2024
+              <Button variant="secondary" href="#program">
+                Program
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  className="h-4 w-4 motion-safe:animate-bounce"
+                >
+                  <path
+                    d="M5 8l5 5 5-5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </Button>
             </div>
 
-            <div className="mt-1 flex flex-col gap-1 border-l-2 border-primary-200 pl-4 text-sm text-primary-900/70">
-              <p>Součástí vstupenky na konferenci je celodenní občerstvení.</p>
-              <p>
-                Součástí vstupenky na after párty je občerstvení, pivo i víno.
+            <div className="mt-1 flex flex-col gap-2 rounded-2xl bg-white/60 px-4 py-3 text-primary-900 ring-1 ring-inset ring-primary-200 backdrop-blur">
+              <p className="flex items-start gap-2.5 text-sm sm:text-base">
+                <span aria-hidden="true">🍽️</span>
+                <span>
+                  Součástí vstupenky na konferenci je celodenní občerstvení.
+                </span>
+              </p>
+              <p className="flex items-start gap-2.5 text-sm sm:text-base">
+                <span aria-hidden="true">🍺</span>
+                <span>
+                  Součástí vstupenky na after párty je občerstvení, pivo i víno.
+                </span>
               </p>
             </div>
           </div>

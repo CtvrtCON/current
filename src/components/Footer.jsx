@@ -22,6 +22,14 @@ export function Footer() {
           <span className="text-primary-300">·</span>
           <span className="text-track-dsn-ink">DSN</span>
         </div>
+        <a
+          href="https://2024.ctvrtcon.cz"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-slate-500 transition hover:text-accent"
+        >
+          Ročník 2024
+        </a>
         <p className="text-sm text-slate-500">
           &copy; {new Date().getFullYear()}{' '}
           <a

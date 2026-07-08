@@ -266,7 +266,7 @@ function StageLabel({ stageName, track, className }) {
   return (
     <span
       className={clsx(
-        'inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider',
+        'inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider sm:text-xs',
         t ? t.text : stageAccent(stageName),
         className,
       )}
@@ -287,7 +287,7 @@ function toTimeValue(t) {
 
 function TimeRange({ start, end }) {
   return (
-    <p className="font-mono text-sm text-slate-500">
+    <p className="font-mono text-xs text-slate-500 sm:text-sm">
       <time dateTime={toTimeValue(start)}>{start}</time> –{' '}
       <time dateTime={toTimeValue(end)}>{end}</time>
     </p>
@@ -295,16 +295,16 @@ function TimeRange({ start, end }) {
 }
 
 function ProgramTable({ timeBlock }) {
-  const blockWidth = timeBlock.block.length <= 1 ? 'md:col-span-2' : ''
+  const blockWidth = timeBlock.block.length <= 1 ? 'col-span-2' : ''
 
   return (
-    <div className="grid auto-rows-auto grid-cols-1 transition-colors odd:bg-white/40 even:bg-primary-100/30 md:grid-cols-2">
+    <div className="grid auto-rows-auto grid-cols-2 transition-colors odd:bg-white/40 even:bg-primary-100/30">
       {timeBlock.block.map((stage, i) => (
         <div
           id={stage.id}
           className={clsx(
             blockWidth,
-            'flex scroll-mt-28 flex-col border-b border-primary-100/70 px-4 py-6 text-center last:border-b-0 sm:px-8 md:border-b-0 md:border-r md:last:border-r-0',
+            'flex scroll-mt-28 flex-col border-r border-primary-100/70 px-3 py-4 text-center last:border-r-0 sm:px-8 sm:py-6',
           )}
           key={i}
         >
@@ -315,7 +315,7 @@ function ProgramTable({ timeBlock }) {
                   key={j}
                   className="flex flex-col items-center gap-1 border-t border-primary-100/70 pt-4 first:border-t-0 first:pt-0"
                 >
-                  <h3 className="font-semibold tracking-tight text-primary-900 sm:text-lg">
+                  <h3 className="text-sm font-semibold tracking-tight text-primary-900 sm:text-lg">
                     {talk.name}
                   </h3>
                   <StageLabel stageName={stage.stageName} track={talk.track} />
@@ -325,11 +325,11 @@ function ProgramTable({ timeBlock }) {
             </div>
           ) : stage.stageName ? (
             <>
-              <h3 className="mb-1 font-semibold tracking-tight text-primary-900 sm:text-lg">
+              <h3 className="mb-1 text-sm font-semibold tracking-tight text-primary-900 sm:text-lg">
                 {stage.name}
               </h3>
               {stage.description && (
-                <p className="mb-3 tracking-tight text-slate-600">
+                <p className="mb-3 text-sm tracking-tight text-slate-600 sm:text-base">
                   {stage.description}
                 </p>
               )}
@@ -348,7 +348,7 @@ function ProgramTable({ timeBlock }) {
                 {stage.name}
               </h3>
               {stage.description && (
-                <p className="tracking-tight text-slate-600">
+                <p className="text-sm tracking-tight text-slate-600 sm:text-base">
                   {stage.description}
                 </p>
               )}
