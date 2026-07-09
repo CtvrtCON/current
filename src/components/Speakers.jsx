@@ -41,7 +41,7 @@ const days = [
         name: 'Martin Hrabánek',
         url: '#martin-hrabanek',
         role: 'Brand designer',
-        company: 'Brandtastic!',
+        company: 'High Contrast!',
         track: 'DSN',
         image: martinHrabanekImage,
       },

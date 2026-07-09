@@ -64,7 +64,7 @@ const program = [
     block: [
       {
         stageName: 'Stage 1',
-        name: 'Bude upřesněno',
+        name: 'Případová studie STACA',
         description: 'Martin Hrabánek',
         track: 'DSN',
         id: 'martin-hrabanek',
