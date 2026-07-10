@@ -72,7 +72,7 @@ const days = [
       {
         name: 'Vladimír Smitka',
         url: '#vladimir-smitka',
-        role: 'Boss, Analytika, Servery, IT',
+        role: 'Head of Innovation & Engineering',
         company: 'LYNT services',
         track: 'DEV',
         image: vladaSmitkaImage,
