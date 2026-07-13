@@ -1,7 +1,7 @@
 import { Button } from '@/components/Button'
 
-// Temporarily off until sales open — flip to true when registration opens.
-const REGISTRATIONS_OPEN = false
+// Registration is open — set to false to disable the button again.
+const REGISTRATIONS_OPEN = true
 
 const TICKET_URL =
   'https://form.fapi.cz/?id=b4850944-58b3-490e-815c-7b1713206693'
