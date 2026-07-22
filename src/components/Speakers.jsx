@@ -35,6 +35,7 @@ const days = [
         role: 'UX Designer & AI Architect',
         company: 'Jakub Hájek Rocks',
         track: 'DSN',
+        talk: 'Only Handle It Once a jak daleko se to dá posunout.',
         image: jakubHajekImage,
       },
       {
@@ -43,6 +44,7 @@ const days = [
         role: 'Brand designer',
         company: 'High Contrast!',
         track: 'DSN',
+        talk: 'Případová studie STACA',
         image: martinHrabanekImage,
       },
       {
@@ -51,6 +53,7 @@ const days = [
         role: 'Lead Product Designer',
         company: 'Dotidot',
         track: 'DSN',
+        talk: 'AI ze mě neudělala vývojáře. Udělala ze mě lepšího designéra.',
         image: martinLaudatImage,
       },
       {
@@ -59,6 +62,7 @@ const days = [
         role: 'co-founder penmate.ai',
         company: 'Headers',
         track: 'DEV',
+        talk: 'Naprogramuješ cokoliv. A co dál?',
         image: vaclavNovotnyImage,
       },
       {
@@ -67,6 +71,7 @@ const days = [
         role: 'Tech lead & software engineer',
         company: 'LYNT services',
         track: 'DEV',
+        talk: 'Napiš mi Dockerfile. Make no mistakes.',
         image: janSmitkaImage,
       },
       {
@@ -75,6 +80,7 @@ const days = [
         role: 'Head of Innovation & Engineering',
         company: 'LYNT services',
         track: 'DEV',
+        talk: 'Začněte s HW programováním ještě dnes',
         image: vladaSmitkaImage,
       },
       {
@@ -83,6 +89,7 @@ const days = [
         role: 'Chief People Eliminator',
         company: 'Simplia.cz',
         track: 'DEV',
+        talk: 'Jak se změní IT firmy v době vibe codérů',
         image: petrSoukupImage,
       },
       {
@@ -91,6 +98,7 @@ const days = [
         role: 'Vývojář a architekt',
         company: 'SmartEmailing',
         track: 'DEV',
+        talk: 'SQLite je na nic (?)',
         image: martinStrouhalImage,
       },
       {
@@ -99,6 +107,7 @@ const days = [
         role: 'Founder & CEO',
         company: 'Adventurer Solutions',
         track: 'MKT',
+        talk: 'Marketing v pohorách: Příběh budování startupu Adventurer',
         image: karelSimekImage,
       },
       {
@@ -107,6 +116,7 @@ const days = [
         role: 'Head of Security',
         company: 'Shoptet',
         track: 'DEV',
+        talk: 'Supply chain security - aby vás jeden divnej commit v používané knihovně moc nesejmul',
         image: michalSpacekImage,
       },
       {
@@ -115,6 +125,7 @@ const days = [
         role: 'CEO',
         company: 'OchutnejOrech.cz',
         track: 'MKT',
+        talk: 'Bude upřesněno',
         image: petrVovesImage,
       },
       {
@@ -123,6 +134,7 @@ const days = [
         role: 'Zalívač květin a CEO v RESULTIO',
         company: 'RESULTIO',
         track: 'MKT',
+        talk: 'Proč obsah bude král i v roce 2027',
         image: jiriZofajImage,
       },
     ],
@@ -229,6 +241,11 @@ export function Speakers() {
                             {speaker.name}
                           </h3>
                         </a>
+                        {speaker.talk && (
+                          <p className="text-sm font-medium text-primary-700">
+                            {speaker.talk}
+                          </p>
+                        )}
                         {speaker.role && (
                           <p className="text-sm tracking-tight text-primary-900/80">
                             {speaker.role}

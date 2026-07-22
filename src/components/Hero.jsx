@@ -77,6 +77,17 @@ export function Hero() {
               </p>
             </div>
 
+            <div className="flex flex-col gap-2">
+              <p className="flex items-center gap-2.5 text-lg font-semibold text-primary-900 sm:text-xl">
+                <span aria-hidden="true">📅</span>
+                <time dateTime="2026-11-28">sobota 28. 11. 2026</time>
+              </p>
+              <p className="flex items-center gap-2.5 text-lg font-semibold text-primary-900 sm:text-xl">
+                <span aria-hidden="true">📍</span>
+                <span>Riegrova 51, České Budějovice</span>
+              </p>
+            </div>
+
             <Countdown className="mt-1" />
 
             <div className="mt-2 flex flex-wrap items-center gap-4">
