@@ -125,7 +125,7 @@ const days = [
         role: 'CEO',
         company: 'OchutnejOrech.cz',
         track: 'MKT',
-        talk: 'Bude upřesněno',
+        talk: 'Rok a půl poté v Ochutnej Ořech: expanze do zahraničí a budování značky v době AI',
         image: petrVovesImage,
       },
       {

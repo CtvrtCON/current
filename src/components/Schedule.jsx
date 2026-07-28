@@ -113,7 +113,7 @@ const program = [
     block: [
       {
         stageName: 'Stage 1',
-        name: 'Bude upřesněno',
+        name: 'Rok a půl poté v Ochutnej Ořech: expanze do zahraničí a budování značky v době AI',
         description: 'Petr Voves',
         track: 'MKT',
         id: 'petr-voves',
