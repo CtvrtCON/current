@@ -100,7 +100,8 @@ const program = [
             end: '11:30',
           },
           {
-            name: 'Rozhovor: Jan Svěrák a host: chemiX',
+            name: 'Rozhovor: AI battle a vibecoding',
+            description: 'Host: chemiX',
             track: 'DEV',
             start: '12:00',
             end: '12:30',
@@ -343,6 +344,11 @@ function ProgramTable({ timeBlock }) {
                   <h3 className="text-sm font-semibold tracking-tight text-primary-900 sm:text-lg">
                     {talk.name}
                   </h3>
+                  {talk.description && (
+                    <p className="text-sm tracking-tight text-slate-600 sm:text-base">
+                      {talk.description}
+                    </p>
+                  )}
                   <StageLabel stageName={stage.stageName} track={talk.track} />
                   <TimeRange start={talk.start} end={talk.end} />
                 </div>
