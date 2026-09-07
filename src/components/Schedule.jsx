@@ -295,7 +295,10 @@ function StageLabel({ stageName, track, className }) {
       )}
     >
       <span
-        className={clsx('h-1.5 w-1.5 rounded-full', t ? t.dot : 'bg-current')}
+        className={clsx(
+          'hidden h-1.5 w-1.5 shrink-0 rounded-full sm:block',
+          t ? t.dot : 'bg-current',
+        )}
       />
       {stageName}
       {track ? ` (${track})` : ''}
