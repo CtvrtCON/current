@@ -100,7 +100,7 @@ const program = [
             end: '11:30',
           },
           {
-            name: 'Rozhovor: Jan Svěrák a host',
+            name: 'Rozhovor: Jan Svěrák a host: chemiX',
             track: 'DEV',
             start: '12:00',
             end: '12:30',
@@ -252,6 +252,28 @@ const program = [
       },
     ],
   },
+  {
+    block: [
+      {
+        stageName: 'Prostor „Kavárna“',
+        name: 'AI battle',
+        start: '18:00',
+        end: '19:00',
+      },
+      {
+        stageName: 'Prostor „Kavárna“',
+        name: 'Stand up comedy',
+        start: '19:00',
+        end: '20:00',
+      },
+      {
+        stageName: 'Prostor „Kavárna“',
+        name: 'DJ David Čáp live',
+        start: '20:00',
+        end: '22:00',
+      },
+    ],
+  },
 ]
 
 function stageAccent(stageName) {
@@ -294,18 +316,21 @@ function TimeRange({ start, end }) {
   )
 }
 
-function ProgramTable({ timeBlock }) {
-  const blockWidth = timeBlock.block.length <= 1 ? 'col-span-2' : ''
+// Full class names so Tailwind can pick them up; one column per item in the block.
+const GRID_COLS = { 1: 'grid-cols-1', 2: 'grid-cols-2', 3: 'grid-cols-3' }
 
+function ProgramTable({ timeBlock }) {
   return (
-    <div className="grid auto-rows-auto grid-cols-2 transition-colors odd:bg-white/40 even:bg-primary-100/30">
+    <div
+      className={clsx(
+        'grid auto-rows-auto transition-colors odd:bg-white/40 even:bg-primary-100/30',
+        GRID_COLS[timeBlock.block.length],
+      )}
+    >
       {timeBlock.block.map((stage, i) => (
         <div
           id={stage.id}
-          className={clsx(
-            blockWidth,
-            'flex scroll-mt-28 flex-col border-r border-primary-100/70 px-3 py-4 text-center last:border-r-0 sm:px-8 sm:py-6',
-          )}
+          className="flex scroll-mt-28 flex-col border-r border-primary-100/70 px-3 py-4 text-center last:border-r-0 sm:px-8 sm:py-6"
           key={i}
         >
           {stage.talks ? (
