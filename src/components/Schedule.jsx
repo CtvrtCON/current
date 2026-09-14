@@ -94,7 +94,8 @@ const program = [
         stageName: 'Stage 2',
         talks: [
           {
-            name: 'Rozhovor: Karel Hladiš a host',
+            name: 'Rozhovor: Marketing a AI bez růžových brýlí',
+            description: 'Host: Lukáš Chládek',
             track: 'MKT',
             start: '11:00',
             end: '11:30',
