@@ -197,7 +197,7 @@ export function Sponsors() {
     <Section id="partneri" className="relative scroll-mt-24 overflow-hidden">
       {/* Full-section color wash, masked with an elliptical radial so it fades
                 out on all four sides — strong in the center, gone at the edges.
-                Sets the final section apart from the dotted sections above. */}
+                Sets the partners section apart from the dotted sections above. */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div
           className="absolute inset-0 bg-gradient-to-br from-sky-200/50 via-primary-200/40 to-emerald-200/50 motion-safe:animate-drift"

@@ -2,6 +2,7 @@ import { Hero } from '@/components/Hero'
 import { Speakers } from '@/components/Speakers'
 import { Schedule } from '@/components/Schedule'
 import { Sponsors } from '@/components/Sponsors'
+import { Crew } from '@/components/Crew'
 // Coming-soon mode: render <ComingSoon/> instead of Speakers + Schedule.
 // import {ComingSoon} from '@/components/ComingSoon'
 
@@ -12,6 +13,7 @@ export default function Home() {
       <Speakers />
       <Schedule />
       <Sponsors />
+      <Crew />
     </>
   )
 }

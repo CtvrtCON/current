@@ -11,6 +11,7 @@ const nav = [
   { label: 'Program', href: '#program' },
   { label: 'Přednášející', href: '#prednasejici' },
   { label: 'Partneři', href: '#partneri' },
+  { label: 'Crew', href: '#crew' },
 ]
 
 export function Header() {
