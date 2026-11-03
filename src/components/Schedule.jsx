@@ -73,7 +73,7 @@ const program = [
       },
       {
         stageName: 'Stage 2',
-        name: 'SQLite je na nic',
+        name: 'Retry, retry, RIP. Opravdu potřebujete webhooky?',
         description: 'Martin Strouhal',
         track: 'DEV',
         id: 'martin-strouhal',

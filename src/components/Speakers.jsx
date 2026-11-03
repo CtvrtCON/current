@@ -98,7 +98,7 @@ const days = [
         role: 'Vývojář a architekt',
         company: 'SmartEmailing',
         track: 'DEV',
-        talk: 'SQLite je na nic (?)',
+        talk: 'Retry, retry, RIP. Opravdu potřebujete webhooky?',
         image: martinStrouhalImage,
       },
       {
