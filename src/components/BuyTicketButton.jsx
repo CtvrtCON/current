@@ -23,9 +23,13 @@ export function BuyTicketButton({ className, size }) {
           size={size}
           className="pointer-events-none"
           disabled
-          aria-label={`Koupit vstupenku! – ${CLOSED_TOOLTIP}`}
+          aria-label={`Vyprodáno! – ${CLOSED_TOOLTIP}`}
         >
-          Koupit vstupenku!
+          {/* The small (header) button has no room for both parts on phones. */}
+          <s className={clsx(size === 'sm' && 'max-sm:hidden')}>
+            Koupit vstupenku
+          </s>
+          <span>→ Vyprodáno!</span>
         </Button>
       </span>
     )

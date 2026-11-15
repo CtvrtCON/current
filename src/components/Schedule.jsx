@@ -229,18 +229,9 @@ const program = [
   {
     block: [
       {
-        name: 'Přestávka',
-        start: '16:45',
-        end: '17:00',
-      },
-    ],
-  },
-  {
-    block: [
-      {
         name: 'Zakončení',
         start: '17:00',
-        end: '18:00',
+        end: '17:10',
       },
     ],
   },
