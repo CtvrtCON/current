@@ -240,8 +240,8 @@ const program = [
       {
         stageName: 'Prostor „Kavárna“',
         name: 'Večírek + after párty',
-        start: '18:00',
-        end: '22:00',
+        start: '17:30',
+        end: '23:00',
       },
     ],
   },
