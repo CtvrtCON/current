@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 
 import { BuyTicketButton } from '@/components/BuyTicketButton'
@@ -313,14 +314,90 @@ function TimeRange({ start, end }) {
   )
 }
 
+// --- "Now" line: shown only on the conference day, in Prague time. ---
+
+const EVENT_DATE = '2026-11-28'
+
+function toMinutes(t) {
+  const [h, m] = t.split(':')
+  return h * 60 + Number(m)
+}
+
+// [start, end] in minutes for each program row, nested talks included.
+const ROW_SPANS = program.map(({ block }) => {
+  const times = block
+    .flatMap((item) => item.talks ?? [item])
+    .flatMap((t) => [toMinutes(t.start), toMinutes(t.end)])
+  return [Math.min(...times), Math.max(...times)]
+})
+
+// Minutes since midnight in Prague, or null outside the conference day.
+// `?now=10:30` fakes the time for testing.
+function pragueMinutes() {
+  const fake = new URLSearchParams(window.location.search).get('now')
+  if (/^\d{1,2}:\d{2}$/.test(fake ?? '')) return toMinutes(fake)
+
+  const p = Object.fromEntries(
+    new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Europe/Prague',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hourCycle: 'h23',
+    })
+      .formatToParts(new Date())
+      .map(({ type, value }) => [type, value]),
+  )
+  if (`${p.year}-${p.month}-${p.day}` !== EVENT_DATE) return null
+  return p.hour * 60 + Number(p.minute)
+}
+
+// Row the line belongs to and how far into it (0–1). Evening rows overlap,
+// so the latest started row wins; between rows the line sits on the boundary.
+function locate(now) {
+  let row = -1
+  ROW_SPANS.forEach(([start, end], i) => {
+    if (start <= now && now < end) row = i
+  })
+  if (row >= 0) {
+    const [start, end] = ROW_SPANS[row]
+    return { row, frac: (now - start) / (end - start), live: true }
+  }
+  const next = ROW_SPANS.findIndex(([start]) => start > now)
+  return next > 0 ? { row: next, frac: 0, live: false } : null
+}
+
+function formatMinutes(m) {
+  return `${Math.floor(m / 60)}:${String(m % 60).padStart(2, '0')}`
+}
+
+function useNow() {
+  const [now, setNow] = useState(null)
+  useEffect(() => {
+    const tick = () => setNow(pragueMinutes())
+    tick()
+    const id = setInterval(tick, 30_000)
+    // Background tabs throttle timers; catch up as soon as the tab is back.
+    document.addEventListener('visibilitychange', tick)
+    return () => {
+      clearInterval(id)
+      document.removeEventListener('visibilitychange', tick)
+    }
+  }, [])
+  return now
+}
+
 // Full class names so Tailwind can pick them up; one column per item in the block.
 const GRID_COLS = { 1: 'grid-cols-1', 2: 'grid-cols-2', 3: 'grid-cols-3' }
 
-function ProgramTable({ timeBlock }) {
+function ProgramTable({ timeBlock, current }) {
   return (
     <div
       className={clsx(
         'grid auto-rows-auto transition-colors odd:bg-white/40 even:bg-primary-100/30',
+        current && '!bg-primary-100/70',
         GRID_COLS[timeBlock.block.length],
       )}
     >
@@ -390,19 +467,59 @@ function ProgramTable({ timeBlock }) {
   )
 }
 
-function ScheduleStatic() {
+function ScheduleStatic({ ref, current }) {
   return (
-    <div className="glass mx-auto flex max-w-4xl flex-col divide-y divide-primary-100/70 overflow-hidden rounded-3xl shadow-card">
+    <div
+      ref={ref}
+      className="glass mx-auto flex max-w-4xl flex-col divide-y divide-primary-100/70 overflow-hidden rounded-3xl shadow-card"
+    >
       {program.map((stage, i) => (
-        <ProgramTable timeBlock={stage} key={i} />
+        <ProgramTable timeBlock={stage} key={i} current={current === i} />
       ))}
     </div>
   )
 }
 
+// Full-width "now" line over the whole section; `top` is relative to the section.
+function useNowLine(sectionRef, listRef) {
+  const now = useNow()
+  const pos = now === null ? null : locate(now)
+  const [top, setTop] = useState(null)
+
+  useEffect(() => {
+    if (!pos) {
+      setTop(null)
+      return
+    }
+    const place = () => {
+      const row = listRef.current.children[pos.row]
+      // offsetTop ignores the Reveal translate, so the line never lands mid-animation.
+      let y = pos.frac * row.offsetHeight
+      for (
+        let el = row;
+        el && el !== sectionRef.current;
+        el = el.offsetParent
+      ) {
+        y += el.offsetTop
+      }
+      setTop(y)
+    }
+    place()
+    const observer = new ResizeObserver(place)
+    observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [pos?.row, pos?.frac]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  return { now, top, current: pos?.live ? pos.row : null }
+}
+
 export function Schedule() {
+  const sectionRef = useRef(null)
+  const listRef = useRef(null)
+  const { now, top, current } = useNowLine(sectionRef, listRef)
+
   return (
-    <Section className="relative scroll-mt-24" id="program">
+    <Section ref={sectionRef} className="relative scroll-mt-24" id="program">
       {/* Single dot grid; bleeds up behind the Speakers section (-z-10) so the two
           sections connect seamlessly, with no white gap. */}
       <div
@@ -435,11 +552,25 @@ export function Schedule() {
       <div className="relative z-10 mt-10 text-center sm:mt-14">
         <Container className="relative">
           <Reveal>
-            <ScheduleStatic />
+            <ScheduleStatic ref={listRef} current={current} />
           </Reveal>
           <BuyTicketButton className="mt-12 sm:mt-14" />
         </Container>
       </div>
+      {top !== null && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 z-20 -translate-y-1/2 transition-[top] duration-700"
+          style={{ top }}
+        >
+          <div className="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 bg-accent/50" />
+          {/* Flush with the page's left edge, clear of the program card. */}
+          <span className="relative inline-block rounded-r-full bg-accent py-0.5 pl-2 pr-2.5 font-mono text-[11px] font-semibold text-white shadow-card">
+            <span className="max-sm:hidden">Teď </span>
+            {formatMinutes(now)}
+          </span>
+        </div>
+      )}
     </Section>
   )
 }

@@ -13,7 +13,6 @@ import eonLogo from '@/images/partners/eon.png'
 import eshopRychleLogo from '@/images/partners/eshop-rychle.png'
 import headersLogo from '@/images/partners/headers.png'
 import inizioLogo from '@/images/partners/inizio.png'
-import marianBencatLogo from '@/images/partners/marian-bencat.png'
 import naucimeAiLogo from '@/images/partners/naucime-ai.png'
 import simpliaLogo from '@/images/partners/simplia.png'
 import smartEmailingLogo from '@/images/partners/smartemailing.png'
@@ -87,12 +86,6 @@ const ctvrtkonPartners = [
     logo: inizioLogo,
     url: 'https://www.inizio.cz',
     description: 'Webová laboratoř a online marketingová agentura',
-  },
-  {
-    name: 'Marian Benčat',
-    logo: marianBencatLogo,
-    url: 'https://www.linkedin.com/in/marian-ben%C4%8Dat-a832b794',
-    description: 'Senior Frontend Developer',
   },
   {
     name: 'naučíme.ai',
