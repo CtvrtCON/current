@@ -3,6 +3,7 @@
 import clsx from 'clsx'
 
 import { BuyTicketButton } from '@/components/BuyTicketButton'
+import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Reveal } from '@/components/Reveal'
 import { Section } from '@/components/Section'
@@ -417,6 +418,18 @@ export function Schedule() {
       <Container className="relative z-10">
         <Reveal>
           <SectionHeading eyebrow="Dva sály, celý den">Program</SectionHeading>
+          <div className="mt-6 text-center">
+            {/* File lives in /public; Link prepends basePath, `download` skips the client router. */}
+            <Button
+              href="/ctvrtcon-2026-program-a4.pdf"
+              download
+              prefetch={false}
+              variant="secondary"
+              size="sm"
+            >
+              Stáhnout program v PDF ↓
+            </Button>
+          </div>
         </Reveal>
       </Container>
       <div className="relative z-10 mt-10 text-center sm:mt-14">
